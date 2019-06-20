@@ -22,7 +22,7 @@ class User(Base): # 暂时理解：把User映射到python表，在程序里操�
 	age = Column(Integer)
 	sex = Column(String(1))
 	tel = Column(String(11))
-	school = relationship('School') # 关联其它表
+	school = relationship('School', backref='sch.name') # 关联其它表
 
 	def __repr__(self): # 此方法自动执行，设置返回查询格式
 		temp = '%s,%s,%s,%s' % (self.name, self.age, self.sex, self.tel)
@@ -37,18 +37,17 @@ class School(Base): # 此段代码只是示意关联其它表所写，
 
 def main_function():
 	# 数据库类型+数据库驱动名称://用户名:口令@机器地址:端口号/数据库名
-	engine = create_engine('mysql+pymysql://root:12345678@192.168.12.66:3306/test')
+	engine = create_engine('mysql+pymysql://root:12345678@192.168.10.241:3306/test')
 	# 增删改查操作是通过一个session对象(DBSession,是由sessionmaker创建的)来完成的。
 	DBseeeion = sessionmaker(bind=engine) # 创建会话，需要指定和那个数据库引擎之间的会话
 	session = DBseeeion() # 使用session会话进行数据库操作了，暂时可以理解为mysql的游标cursor
 
-	# new_user = User(name='zhangsan',tel='12110')
+	# new_user = User(name='root007',age=18,sex='m',tel=10089)
 	# session.add(new_user) #增
-	data = session.query(User).filter(User.tel=='10089').one() # 查
+	data = session.query(User).filter(User.tel=='10089').all() # 查
 	# data.name = 'lisi' # 改
 	# session.delete(data) # 删
 	print('query : {}'.format(data)) # 因user类中定义了__repr__，所以可以返回自定义的格式而不是内存地址
-
 	session.commit()
 	session.close()
 if __name__ == '__main__':

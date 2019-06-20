@@ -20,45 +20,46 @@
 # # im1.save('tcpip1.jpg','jpeg')
 # # Image.open('tcpip1.jpg').show()
 
-# from PIL import Image,ImageFilter,ImageDraw,ImageFont
-# import random
-#
-# def yanzheng():
-# 	L = []
-# 	def rndChar(): # 随机字母
-# 		zimu = chr(random.randint(65, 90))
-# 		L.append(zimu)
-# 		return zimu
-# 	def rndColor(): # 随机颜色1
-# 		return (random.randint(32,127),random.randint(32,127),random.randint(32,127))
-# 	def rndColor2(): # 随机颜色2
-# 		return (random.randint(64,255),random.randint(64,255),random.randint(64,255))
-# 	width = 60*4
-# 	height = 60
-# 	image = Image.new('RGB',(width,height),(255,255,255)) # 新建图像参数
-# 	font = ImageFont.truetype('C:\Windows\Fonts\Arial.ttf',36)  # 创建对象，设置字体
-# 	draw = ImageDraw.Draw(image)  # 创建绘制对象
-# 	for i in range(width):  # 填充画布
-# 		for j in range(height):
-# 			draw.point((i,j),fill=rndColor())
-# 	for i in range(4):  # 输出文字
-# 		draw.text((60*i+10,10),rndChar(),font=font,fill=rndColor2())
-# 	image = image.filter(ImageFilter.BLUR) # 模糊图片
-# 	image.show()
-# 	return L
-# num1 = yanzheng()
-# num = list(input('Please input image : ').upper())
-# # num = [x.capitalize() for x in num]
-# print(num1,num)
-# if num == num1:
-# 	print('ok')
-# else:
-# 	print('no')
+# 根据图片内字符，输入该字符，进行验证
+from PIL import Image,ImageFilter,ImageDraw,ImageFont
+import random
+
+def yanzheng():
+	L = []
+	def rndChar(): # 随机字母
+		zimu = chr(random.randint(65, 90))
+		L.append(zimu)
+		return zimu
+	def rndColor(): # 随机颜色1
+		return (random.randint(32,127),random.randint(32,127),random.randint(32,127))
+	def rndColor2(): # 随机颜色2
+		return (random.randint(64,255),random.randint(64,255),random.randint(64,255))
+	width = 60*4
+	height = 60
+	image = Image.new('RGB',(width,height),(255,255,255)) # 新建图像参数
+	font = ImageFont.truetype('C:\Windows\Fonts\Arial.ttf',36)  # 创建对象，设置字体
+	draw = ImageDraw.Draw(image)  # 创建绘制对象
+	for i in range(width):  # 填充画布
+		for j in range(height):
+			draw.point((i,j),fill=rndColor())
+	for i in range(4):  # 输出文字
+		draw.text((60*i+10,10),rndChar(),font=font,fill=rndColor2())
+	image = image.filter(ImageFilter.BLUR) # 模糊图片
+	image.show()
+	return L
+num1 = yanzheng()
+num = list(input('Please input image : ').upper())
+# num = [x.capitalize() for x in num]
+print(num1,num)
+if num == num1:
+	print('ok')
+else:
+	print('no')
 
 
 
 
-# import requests,re
+import requests,re
 
 # r = requests.get('https://www.csdn.net/')
 # print(r.status_code)
@@ -67,7 +68,7 @@
 # print(r.json())
 
 # r = requests.get('https://www.douban.com/', headers={'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit'})
-# print(re.search(r'\d{1,6}',r.text).group())
+# print(re.search(r'\d{2,6}',r.text).group())
 # print(r.text)
 
 # import chardet

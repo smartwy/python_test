@@ -3250,7 +3250,7 @@
 # dict_1 = {'code':'200', 'message':'ok'}
 # json.dump(dict_1, open('ft.txt', 'w'))
 #
-# # dumps 字典转string，易传输
+# # dumps 字典转json string，易传输
 # str_1 = {"code":"200", "message":"ok"}
 # resu = json.dumps(str_1)
 # print(resu)
@@ -3272,3 +3272,257 @@
 # 			if a+b+c == 1000 and a*a + b*b == c*c:
 # 				print(a,b,c)
 # print(time.time()-s)
+
+# lst = [9,8,7,20]
+# first, *second = lst
+# head, *_, tail = lst
+# print(head)
+# print(tail)
+
+# a,c,b = "JAVA_HOME=/usr/bin".partition('=')
+# print(a,'--',b)
+
+
+# print([(i,j) for i in range(7) if i>4 for j in range(20,25) if j>23])
+# print([(i,j) for i in range(7) for j in range(20,25) if i>4 if j>23])
+# print([(i,j) for i in range(7) for j in range(20,25) if i>4 and j>23])
+
+
+# class Point():
+# 	def __init__(self, x ,y):
+# 		self.x = x
+# 		self.y = y
+# 	def __call__(self, *args, **kwargs):
+# 		return "Point {}:{}".format(self.x, self.y)
+#
+# p = Point(4,5)
+# print(p)
+# print(p())
+
+# class Adder:
+# 	def __call__(self, *args, **kwargs):
+# 		ret = 0
+# 		for x in args:
+# 			ret += x
+# 		self.ret = ret
+# 		return ret
+# adder = Adder()
+# print(adder(4,5,6))
+# print(adder.ret)
+
+
+# s1 = '3.90mog/s'
+# print(s1.strip('mog/s')) # 默认删除空格
+# print(s1.split('mog/s')) # 指定切割符
+
+# import os
+# def dir_pf(d_path):
+# 	for s_child in os.listdir(d_path):
+# 		s_child_path = os.path.join(d_path, s_child)
+# 		if os.path.isdir(s_child_path):
+# 			dir_pf(s_child_path)
+# 		else:
+# 			print(s_child_path)
+# dir_pf('D:\Bypass')
+
+# print('asdf'[::-1])
+
+# kd = {}
+# s1 = 'k:1 |k1:2|k2:3|k3:4'
+# for i in s1.split('|'):
+# 	k,v = i.split(':')
+# 	kd[k] = v
+#
+# print(kd)
+
+# alist = [{'name':'a','age':20},{'name':'b','age':30},{'name':'c','age':25}]
+# print(sorted(alist, key=lambda i:i['age']))
+
+# list = ['a','b','c','d','e']
+# print(list[10:]) # 索引切片不会报indexerror，直接用超出索引会报indexerror
+
+
+# print([i*4 for i in range(10)]) # 等差是4的列表
+
+# list1 = [1,2,3]
+# list2 = [3,4,5]
+# s1 = set(list1)
+# s2 = set(list2)
+# print(s1 & s2) # 交集
+# print(s1 ^ s2) # 差集
+
+# l1 = ['b','c','d','c','a','a']
+# # print(set(l1))
+# l2 = sorted(set(l1),key=l1.index)
+# print(l2)
+
+## 反转一个整数
+# def fanzhuan(num):
+# 	if -10 < num < 10:
+# 		return num
+# 	if num < 0:
+# 		num = str(num)
+# 		s = num[:0:-1]
+# 		return '-' + s
+# 	else:
+# 		num = str(num)
+# 		return num[::-1]
+#
+# print(fanzhuan(123))
+
+
+# print(sum(range(1,101)))
+#
+# a=[1,2,3,4,5,6,7,8]
+# print(id(a))
+# for i in range(len(a)-1,-1,-1):
+#     if a[i]>5:
+#         pass
+#     else:
+#         a.remove(a[i])
+# print(id(a))
+# print('-----------')
+# print(a)
+#
+# a=[1,2,3,4,5,6,7,8]
+# b = filter(lambda x: x>5,a)
+# print(list(b))
+
+# a = [1,2,3,4]
+# for i in range(len(a)-1,-1,-1): # 索引倒序
+# 	print(i)
+
+
+# # 给定nums = [2,7,11,15],target=9 因为 nums[0]+nums[1] = 2+7 =9,所以返回[0,1]
+# ns = [2,7,11,15]
+# sl = 9
+# def zw(nums,s):
+# 	for i_idx,i in enumerate(nums):
+# 		for j_idx,j in enumerate(nums):
+# 			if i+j == s:
+# 				return i_idx,j_idx
+# print(zw(ns,sl))
+
+
+import re
+
+
+# # 方法一
+# def test(filepath):
+# 	distone = {}
+# 	with open(filepath) as f:
+# 		for line in f:
+# 			line = re.sub("\W+", " ", line)
+# 			lineone = line.split()
+# 			for keyone in lineone:
+# 				if not distone.get(keyone):
+# 					distone[keyone] = 1
+# 				else:
+# 					distone[keyone] += 1
+# 	num_ten = sorted(distone.items(), key=lambda x: x[1], reverse=True)[:10]
+# 	num_ten = [x[0] for x in num_ten]
+# 	return num_ten
+# result = test(r'E:\python_project_dir\python_test\test.txt')
+# print(result)
+
+
+import datetime
+
+# # y = int(input('年>>>'))
+# # m = int(input('月>>>'))
+# # d = int(input('日>>>'))
+# y,m,d = input('>>>').split()
+# y, m, d = int(y),int(m), int(d)
+# ndate = datetime.date(y,m,d)
+# odate = datetime.date(y,1,1)
+# result = ndate - odate
+# print(result)
+
+# 思路：先降序排列，遍历每个元素，奇数insert 0 最后形成前面奇数小到大后面偶数大到小
+# def func1(l):
+#     if isinstance(l, str):
+#         l = [int(i) for i in l]
+#     l.sort(reverse=True)
+#     print(l)
+#     for i in range(len(l)):
+#         if l[i] % 2 > 0:
+#             l.insert(0, l.pop(i))
+#     print(''.join(str(e) for e in l))
+# l = '1982376455'
+# func1(l)
+
+# l2 = [1,2,3,4,5,6,7]
+# res = l2.pop(2) # 指定索引
+# res1 = l2.remove(2) # 指定元素内容
+# print(res,l2)
+
+# num_list = [34, 11, 23, 56, 78, 0, 9, 12, 3, 7, 5]
+# # num_list.sort() # 原地排序
+# # print(num_list,num_list[-2])
+# res = sorted(num_list) # 排序新生成列表
+# print(num_list, res[-2])
+
+
+# s1 = "AAABBCCAC"
+# st1 = set(s1)
+# for i in st1:
+# 	res = s1.count(i)
+# 	print(i,':',res)
+
+
+# from collections import Counter
+# print(Counter("AAABBCCAC").most_common())
+# print("".join(map(lambda x: x[0] + str(x[1]), Counter("AAABBCCAC").most_common())))
+
+
+
+# def f(i:int,name:str) -> int:
+# 	s = name + str(i)
+# 	return s
+# res = f(4,'wy')
+# print(res)
+
+
+# def multipliers():
+#     return [lambda x: i *x for i in range(4)]
+# print([m(2) for m in multipliers()])
+
+
+# class Abc(object):
+# 	__instance = None
+# 	def __new__(cls, *args, **kwargs):
+# 		if cls.__instance is None:
+# 			cls.__instance = super(Abc,cls).__new__(cls)
+# 		return cls.__instance
+
+# import time
+#
+# def timeit(func):
+# 	def wrapper(*args, **kwargs):
+# 		start = time.clock()
+# 		ret = func(*args, **kwargs)
+# 		end = time.clock()
+# 		print('used:', end - start)
+# 		return ret
+#
+# 	return wrapper
+#
+# @timeit
+# def foo():
+# 	print('in foo()')
+# foo()
+
+# import time
+# print(time.clock(),time.time(),sep='|')
+
+# print ([[x for x in range(1,100)][i:i+3] for i in range(0,100,3)])
+
+
+# import random
+# tuple1 = ['23','4', 'adf']
+# print(random.random()) # 0-1
+# print(random.randint(0,11)) # 0-10
+# print(random.randrange(0,10,3)) # 0 3 6 9
+# print(random.sample(tuple1, k=2)) # 随机输出k个元素
+# print(random.shuffle(tuple1),tuple1) # 可变类型数据，原址打乱顺序
+

@@ -24,6 +24,7 @@ sql = 'select * from python'
 # sql = "insert into python values ('%s','%s','%s','%s')" % (name,age,sex,tel)
 # sql = "update python set age = age+10 where sex = '%c'" % 'm'
 # sql = 'select * from python where age >10'
+# sql = "'update python set passwd = '456' where name = 'wangye'"
 try:
 	cursor.execute(sql) # 执行sql语句
 	data = cursor.fetchall() # 接收全部数据，fetchone()接收单条数据

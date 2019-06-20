@@ -1,10 +1,10 @@
-# -*- coding:utf-8 -*-
-#Name:     
-#Descripton:
-#Author:    smartwy
-#Date:     
-#Version:
-
+# # -*- coding:utf-8 -*-
+# #Name:
+# #Descripton:
+# #Author:    smartwy
+# #Date:
+# #Version:
+#
 # import math
 # import bpy
 # bpy.ops.mesh.primitive_plane_add(radius=100, location=(0, 0, 0)) # create Plane
@@ -20,7 +20,7 @@
 #         bpy.ops.mesh.primitive_cube_add(radius=3, location=(x*6-60,2,2.8+z*6))
 #         bpy.ops.rigidbody.object_add()
 #         bpy.context.object.rigid_body.mass = 0.0001
-
+#
 # import os
 # import cProfile
 # def print_directory_contents(sPath):

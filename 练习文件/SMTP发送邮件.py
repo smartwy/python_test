@@ -18,13 +18,13 @@ smtpserver = 'smtp.163.com'
 # 下面三行表示 发送地址，接收地址，邮件主题，不谢报554 DT.SPM错误
 msg['from'] = from_addr
 msg['to'] = to_addr
-msg['subject'] = 'test email'
+msg['subject'] = 'qiuqiuqiuiqu'
 
 import smtplib
 server = smtplib.SMTP(smtpserver, 25)
 server.set_debuglevel(1)
 server.login(from_addr, password)
-server.sendmail(from_addr, [to_addr], msg.as_string())
+server.sendmail(from_addr, to_addr, msg.as_string())
 server.quit()
 
 

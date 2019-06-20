@@ -24,29 +24,29 @@
 # app.master.title('test GUI') # 设置窗口名称
 # app.mainloop() # 主消息循环
 
-# from tkinter import  *
-# import tkinter.messagebox as messagebox
-#
-# class Application(Frame):
-# 	def __init__(self,master=None):
-# 		Frame.__init__(self,master)
-# 		self.pack()
-# 		self.createWidget()
-# 	def createWidget(self):
-# 		self.inputInput = Entry(self)
-# 		self.inputInput.pack()
-# 		self.enterButton = Button(self,text='Enter',command=self.hello)
-# 		self.exitButton = Button(self,text='quit',command=self.quit)
-# 		self.exitButton.pack()
-# 		self.enterButton.pack()
-# 	def hello(self):
-# 		name = self.inputInput.get() or 'world'
-# 		messagebox.showinfo('message','hello,%s'% name)
-# 		self.exitButton = Button(self,text='exit',command=self.quit)
-# 		self.exitButton.pack() # 预期把退出按钮放在弹出窗口，失败
-#
-# app = Application()
-# app.master.title('test input gui')
-# app.mainloop()
+from tkinter import  *
+import tkinter.messagebox as messagebox
+
+class Application(Frame):
+	def __init__(self,master=None):
+		Frame.__init__(self,master)
+		self.pack()
+		self.createWidget()
+	def createWidget(self):
+		self.inputInput = Entry(self)
+		self.inputInput.pack()
+		self.enterButton = Button(self,text='Enter',command=self.hello)
+		self.exitButton = Button(self,text='quit',command=self.quit)
+		self.exitButton.pack()
+		self.enterButton.pack()
+	def hello(self):
+		name = self.inputInput.get() or 'world'
+		messagebox.showinfo('message','hello,%s'% name)
+		self.exitButton = Button(self,text='exit',command=self.quit)
+		self.exitButton.pack() # 预期把退出按钮放在弹出窗口，失败
+
+app = Application()
+app.master.title('test input gui')
+app.mainloop()
 
 

@@ -37,15 +37,15 @@ def tcplink(sock,addr):
 			break
 		sock.send(('hello %s ' % data.decode('utf-8')).encode('utf-8')) # 如果使用UDP，需使用sendto()
 	sock.close()
-	print('connection from %s :%s' % addr)
+	print('close from  %s :%s link !' % addr)
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-s.bind(('10.130.229.164',9999))
+s.bind(('192.168.10.241',9999))
 s.listen(5) # 连接数量， 如果使用UDP，不需要listen
 print('waiting for connection ...')
 while True:
 	sock,addr = s.accept() # 等待客户端访问，阻塞式 如果使用UDP，不需使用accept
-	print('test')
+	print('start threading ..')
 	t = threading.Thread(target=tcplink, args=(sock, addr))
 	t.start()
 

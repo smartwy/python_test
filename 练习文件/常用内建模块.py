@@ -30,8 +30,8 @@
 # p = point(123,234)
 # print(p.x)
 # print(p.y)
-# print(True if isinstance(p,point) else False)
-# print(True if isinstance(p,tuple) else False)
+# print(True if isinstance(p, point) else False)
+# print(True if isinstance(p, tuple) else False)
 
 # from collections import deque
 # '''
@@ -61,9 +61,9 @@
 # '''
 # dict是无序的，根据key才可查询，ordereddict可使dict根据key变有序
 # '''
-# dd = {'k1':'v1','a2':'a2','k3':'v3'}
+# dd = {'k1':'v1','32':'v2','k3':'v3'}
 # print(dd)
-# dd = OrderedDict([('k1','v1'),('a2','a2'),('k3','v3')])
+# dd = OrderedDict(dd)
 # print(dd)
 
 # from collections import Counter
@@ -77,7 +77,7 @@
 
 # import  base64
 # '''
-# base64是一种能将任意Binary资料用64种字元组合成字串的方法，
+# base64是一种用64个字符来表示任意二进制数据的方法，
 # Base64适用于小段内容的编码，比如数字证书签名、Cookie的内容等.不能用于加密
 # '''
 # b64 = base64.b64encode(b'i\xb7\x1d\xfb\xef\xff')
@@ -154,7 +154,7 @@
 # key = b'zhaomin'
 # print(hmac.new(key,message,digestmod='MD5').hexdigest())
 
-import itertools
+# import itertools
 '''
 itertools模块提供的全部是处理迭代功能的函数，它们的返回值不是list，而是Iterator，只有用for循环迭代的时候才真正计算。
 '''
@@ -185,7 +185,7 @@ itertools模块提供的全部是处理迭代功能的函数，它们的返回�
 # 	print(key,list(grou))
 
 # from contextlib import contextmanager
-#
+# '在某段代码执行前后自动执行特定代码,实现代码段的上下文管理'
 # class Query(object):
 #     def __init__(self, name):
 #         self.name = name
@@ -211,9 +211,9 @@ itertools模块提供的全部是处理迭代功能的函数，它们的返回�
 # 	print('3')
 # '''
 # 代码的执行顺序是：
-# 1, with语句首先执行yield之前的语句，因此打印出<h1>；
-# 2, yield调用会执行with语句内部的所有语句，因此打印出hello和world；
-# 3, 最后执行yield之后的语句，打印出</h1>。
+# 1, with语句首先执行yield之前的语句，因此打印出 1；
+# 2, yield调用会执行with语句内部的所有语句，因此打印 3；
+# 3, 最后执行yield之后的语句，打印出 2。
 # 因此，@contextmanager让我们通过编写generator来简化上下文管理。
 # '''
 
@@ -241,15 +241,15 @@ itertools模块提供的全部是处理迭代功能的函数，它们的返回�
 #
 # class MyHTMLParser(HTMLParser):
 #     def handle_starttag(self, tag, attrs):
-#         print('1<%s>' % tag)
+#         print('1 启动标志 <%s>' % tag)
 #     def handle_endtag(self, tag):
-#         print('2</%s>' % tag)
+#         print('2 结束标志 </%s>' % tag)
 #     def handle_startendtag(self, tag, attrs):
 #         print('3<%s/>' % tag)
 #     def handle_data(self, data):
-#         print('4',data)
+#         print('4 数据 ',data)
 #     def handle_comment(self, data):
-#         print('5<!--', data, '-->')
+#         print('5 注释 <!--', data, '-->')
 #     def handle_entityref(self, name):
 #         print('&%s;' % name)
 #     def handle_charref(self, name):
@@ -260,7 +260,8 @@ itertools模块提供的全部是处理迭代功能的函数，它们的返回�
 # <body>
 # <!-- test html parser -->
 #     <p>Some <a href=\"#\">html</a> HTML&nbsp;tutorial...<br>END</p>
-# </body></html>''')
+# </body>
+# </html>''')
 
 
 

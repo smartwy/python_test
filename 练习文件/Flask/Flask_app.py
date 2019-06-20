@@ -16,16 +16,16 @@ def home():
 
 @app.route('/signin',methods=['GET'])
 def signin_form():
+	# print(arg)
 	return '''<form action="/signin" method="post">
-			<p><input name="username"></p>
-			<p><input name="password" type="password"></p>
+			<p><lable>name : </lable><input name="username"></p>
+			<p><lable>pawd : </lable><input name="password" type="password"></p>
 			<p><button type="submit">Sign In</button></p>
 			</form>'''
 
 @app.route('/signin', methods=['POST'])
 def signin():
 	# 需要从request对象读取表单内容：
-	# print('test')
 	username = request.form['username']
 	password = request.form['password']
 	if username=='admin' and password=='password':

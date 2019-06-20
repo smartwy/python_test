@@ -19,10 +19,10 @@ import sys
 # print(msg.decode("utf-8"))
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-s.connect(('10.130.229.164',9999))
+s.connect(('192.168.10.241',9999))
 print(s.recv(1024).decode('utf-8'))
-for data in [b'wangye',b'zhaomin',b'fengwei']:
-	s.send(data)
+for data in ['wangye','zhaomin','fengwei']:
+	s.send(data.encode('utf-8'))
 	print(s.recv(1024).decode('utf-8'))
 s.send(b'exit')
 # print(s.recv(1024).decode("utf-8"))
