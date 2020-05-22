@@ -12,7 +12,7 @@ msg = MIMEText('Hello ,This is by python test email.', 'plain', 'utf-8')
 # password = input("Email passwd :")
 # to_addr = input('The email to who :')
 from_addr = 'wangye1989_0226@163.com'
-password = 'wangye13141314'
+password = '**************'
 to_addr = 'wy120649294@163.com'
 smtpserver = 'smtp.163.com'
 # 下面三行表示 发送地址，接收地址，邮件主题，不谢报554 DT.SPM错误
